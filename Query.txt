@@ -1,0 +1,33 @@
+1.1
+SELECT *
+FROM db_lec3.products;
+
+1.2
+SELECT s.name,
+	   s.phone
+FROM `db_lec3`.`suppliers` AS s;
+
+2
+SELECT ROUND(AVG(p.price), 2) AS average_salary,
+       MAX(p.price) AS max_price,
+       MIN(p.price) AS min_price
+FROM `db_lec3`.`products` AS p;
+
+3
+SELECT DISTINCT p.category_id, p.price
+FROM `db_lec3`.`products` AS p
+ORDER BY price DESC
+limit 10;
+
+4
+SELECT DISTINCT count(p.id) as uniq_products
+FROM `db_lec3`.`products` AS p
+Where p.price >20 and p.price <100
+
+
+5
+SELECT DISTINCT p.supplier_id,
+		count(p.id) as uniq_products, 
+                round(avg(p.price), 2) as average_price
+FROM `db_lec3`.`products` AS p
+group by p.supplier_id
